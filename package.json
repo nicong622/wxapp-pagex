@@ -1,0 +1,12 @@
+{
+  "name": "root",
+  "private": true,
+  "devDependencies": {
+    "lerna": "^3.8.0",
+    "typescript": "^3.2.2"
+  },
+  "dependencies": {
+    "computed": "file:packages/computed",
+    "pagex": "file:packages/pagex"
+  }
+}
