@@ -8,5 +8,9 @@
     "build": "tsc"
   },
   "author": "nicong622",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nicong622/wxapp-pagex"
+  }
 }
