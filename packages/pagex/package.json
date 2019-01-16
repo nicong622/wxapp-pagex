@@ -13,6 +13,6 @@
   "author": "nicong622",
   "license": "MIT",
   "dependencies": {
-    "mp-computed": "^1.0.0"
+    "mp-computed": "^1.0.1"
   }
 }
