@@ -3,7 +3,7 @@
     "packages/*"
   ],
   "publish": {
-    "ignoreChanges": ["packages/test", "*.md"]
+    "ignoreChanges": ["packages/test/", "*.md"]
   },
   "version": "independent"
 }
