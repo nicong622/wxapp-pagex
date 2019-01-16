@@ -9,6 +9,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "private": true,
   "dependencies": {
     "mp-computed": "^1.0.0",
     "mp-pagex": "^1.0.0"
