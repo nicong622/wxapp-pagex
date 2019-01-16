@@ -1,33 +1,6 @@
 import Dep from'./dep';
 import Watcher from './watcher';
 
-// merge mixins into page's options
-export function mergeOptions(origin: object, mixin: object) {
-  const result = Object.assign({}, origin);
-
-  Object.keys(mixin)
-    .forEach((key) => {
-      const newProp = mixin[key];
-      const oldProp = result[key];
-
-      switch (Object.prototype.toString.call(newProp)) {
-        case '[object Function]':
-          result[key] = function(...args) {
-            mixin[key].call(this, ...args);
-            oldProp && (typeof oldProp === 'function') && oldProp.call(this, ...args);
-          };
-          break;
-        case '[object Object]':
-          result[key] = Object.assign({}, mixin[key], result[key]);
-          break;
-        default:
-          result[key] = oldProp === undefined ? newProp : oldProp;
-      }
-    });
-
-  return result;
-}
-
 // change page.data to reactive
 export function defineReactive(obj: Object, key: string, val) {
   const property = Object.getOwnPropertyDescriptor(obj, key);

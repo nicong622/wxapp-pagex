@@ -1,1 +1,3 @@
 <view>{{sayHi}}</view>
+
+<button bindtap="changeName">change name</button>

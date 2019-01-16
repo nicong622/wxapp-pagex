@@ -1,3 +1,15 @@
+# 像 Vuejs 一样在小程序中使用计算属性
+
+## how to use
+
+### install mp-computed
+
+`npm i mp-computed`
+
+### use in your page.js
+
+in your page's js file
+```js
 const { createReactive, hookSetData } = require('mp-computed')
 
 Page({
@@ -17,3 +29,11 @@ Page({
     this.setData({ name: 'nicong622' })
   }
 })
+```
+
+in your page's wxml file
+```xml
+<view>{{sayHi}}</view>
+
+<button bindtap="changeName">change name</button>
+```
