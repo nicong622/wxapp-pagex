@@ -12,6 +12,6 @@
   "private": true,
   "dependencies": {
     "mp-computed": "^1.1.2",
-    "mp-pagex": "^1.0.0"
+    "mp-pagex": "^1.0.1"
   }
 }
