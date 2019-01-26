@@ -11,7 +11,7 @@
   "license": "ISC",
   "private": true,
   "dependencies": {
-    "mp-computed": "^1.1.0",
+    "mp-computed": "^1.1.1",
     "mp-pagex": "^1.0.0"
   }
 }
