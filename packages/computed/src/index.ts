@@ -2,7 +2,7 @@ import Dep from'./dep';
 import Watcher from './watcher';
 
 // change page.data to reactive
-export function defineReactive(obj: Object, key: string, val) {
+function defineReactive(obj: Object, key: string, val) {
   const property = Object.getOwnPropertyDescriptor(obj, key);
   const getter = property && property.get;
   const setter = property && property.set;
@@ -38,7 +38,7 @@ export function defineReactive(obj: Object, key: string, val) {
   }
 }
 
-export function defineComputed(page: Page, parent: Object, key: string, userDef: Function) {
+function defineComputed(page: Page, parent: Object, key: string, userDef: Function) {
   page.__watchers__ = page.__watchers__ || {};
   const watcher = page.__watchers__[key] = new Watcher(page, key, userDef);
   const propertyDefinition = {
@@ -58,22 +58,7 @@ export function defineComputed(page: Page, parent: Object, key: string, userDef:
   Object.defineProperty(parent, key, propertyDefinition);
 }
 
-export function createReactive() {
-  if (this.data) {
-    Object.keys(this.data)
-      .forEach(key => {
-        if (key !== '__webviewId__') {
-          defineReactive(this.data, key, this.data[key]);
-        }
-      });
-
-    Object.keys(this.computed)
-      .filter(key => !this.data.hasOwnProperty(key))
-      .forEach(key => defineComputed(this, this.data, key, this.computed[key]))
-  }
-}
-
-export function hookSetData() {
+function hookSetData() {
   const setData = this.setData;
   this.setData = (newData:object, callback:Function) => {
     // 兼容调用 setData 时 key 为路径形式的写法
@@ -104,7 +89,7 @@ export function hookSetData() {
   this.setData({});
 }
 
-export function objToStringCall<T>(param: T): string {
+function objToStringCall<T>(param: T): string {
   return Object.prototype.toString.call(param);
 }
 
@@ -127,4 +112,21 @@ function safeSet(obj: object, props: string, value) {
     }, obj)
 
   return obj;
+}
+
+export function createReactive() {
+  if (this.data) {
+    Object.keys(this.data)
+      .forEach(key => {
+        if (key !== '__webviewId__') {
+          defineReactive(this.data, key, this.data[key]);
+        }
+      });
+
+    Object.keys(this.computed)
+      .filter(key => !this.data.hasOwnProperty(key))
+      .forEach(key => defineComputed(this, this.data, key, this.computed[key]))
+  }
+
+  hookSetData.call(this);
 }

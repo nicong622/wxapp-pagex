@@ -1,9 +1,8 @@
-const { createReactive, hookSetData } = require('mp-computed')
+const { createReactive } = require('mp-computed')
 
 Page({
   onLoad() {
     createReactive.call(this)
-    hookSetData.call(this)
   },
   data: {
     name: 'stranger'
