@@ -1,5 +1,5 @@
 /// <reference path="../libs/page.d.ts" />
-import { createReactive, hookSetData } from 'mp-computed';
+import { createReactive } from 'mp-computed';
 
 // merge mixins into page's options
 function mergeOptions(origin: object, mixin: object) {
@@ -44,7 +44,6 @@ export default class PageX {
       options = mergeStrategy(options, {
         onLoad() {
           createReactive.call(this)
-          hookSetData.call(this)
         }
       })
     }
