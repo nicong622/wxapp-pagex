@@ -13,7 +13,7 @@
   "author": "nicong622",
   "license": "MIT",
   "dependencies": {
-    "mp-computed": "^1.0.1"
+    "mp-computed": "^1.1.0"
   },
   "repository": {
     "type": "git",
